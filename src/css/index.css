@@ -33,8 +33,23 @@ main header {
     z-index: 1;
 }
 
+main header div.title-content a {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+}
+
 main div.list-header > nav a {
     color: #FFF;
     text-decoration: none;
     font-weight: 550;
+}
+
+main section div.text-body h1 {
+    padding: 10px;
+    margin: 100px;
+    position: inherit;
+    font-size: 5em;
+    color: #FFF;
 }
