@@ -1,23 +1,34 @@
-function getValue(e) {
+function addLocation(e) {
     e.preventDefault();
+
     
-    let qtdLocations = document.getElementById('qtd-locations').value;
-
-
-    if(qtdLocations > 1 && qtdLocations <= 5){
-        for(let i = 1; i < qtdLocations; i++) {
-            let locationContainer = document.createElement('div');
-            locationContainer.setAttribute('id', 'location-container');
-            locationContainer.setAttribute('class', 'form-group');
-            locationContainer.innerHTML = '';
-
-            let createInput = document.createElement('input');
-            createInput.setAttribute('type', 'text');
-            createInput.setAttribute('name', 'location' + i);
-            createInput.setAttribute('class', 'form-control');
-            createInput.setAttribute('placeholder', 'Next location' + i);
-
-            locationContainer.appendChild(createInput);
-        }
-    }
+    let createDivLocation = document.createElement('div');
+    createDivLocation.setAttribute('id', 'add_next_location');
+    createDivLocation.setAttribute('class', 'form-group');
+    createDivLocation.setAttribute('class', 'form-group new-location');
+    
+    
+    // document.querySelector('div#sdate_group').append(createDivLocation);
+    
+    let locationGroup = document.getElementById('location_group');
+    
+    let locationGroupParent = locationGroup.parentNode;
+    
+    locationGroupParent.insertBefore(createDivLocation, locationGroup.nextSibling);
+    
+    let createLabelNextLocation = document.createElement('label');
+    createLabelNextLocation.setAttribute('for', '#');
+    createLabelNextLocation.textContent = "Location";
+    
+    let createInputLocation = document.createElement('input');
+    createInputLocation.setAttribute('type', 'text');
+    createInputLocation.setAttribute('name', 'next-location');
+    createInputLocation.setAttribute('class', 'form-control');
+    createInputLocation.setAttribute('placeholder', 'Next location');
+    
+    createDivLocation.appendChild(createLabelNextLocation);
+    createDivLocation.appendChild(createInputLocation);
 }
+
+const addLocationButton = document.getElementById('addLocationButton');
+addLocationButton.addEventListener('click', addLocation);
