@@ -6,8 +6,6 @@ function addLocation(e) {
   createDivLocation.setAttribute("class", "form-group");
   createDivLocation.setAttribute("class", "form-group new-location");
 
-  // document.querySelector('div#sdate_group').append(createDivLocation);
-
   let locationGroup = document.getElementById("location_group");
 
   let locationGroupParent = locationGroup.parentNode;
@@ -40,6 +38,22 @@ function listTravelPlan(e) {
   const form = document.querySelector(".travel-plan");
   const listTravelPlanContainer = document.querySelector(".list-travel-plan");
 
+  const createDivButtons = document.createElement("div");
+  createDivButtons.setAttribute("class", "button-group");
+
+  const createPrintButton = document.createElement("input");
+  createPrintButton.setAttribute("type", "button");
+  createPrintButton.setAttribute("id", "print");
+  createPrintButton.setAttribute("value", "Print");
+
+  const createDeleteButton = document.createElement("input");
+  createDeleteButton.setAttribute("type", "button");
+  createDeleteButton.setAttribute("id", "delete");
+  createDeleteButton.setAttribute("value", "Delete");
+
+  createDivButtons.appendChild(createPrintButton);
+  createDivButtons.appendChild(createDeleteButton);
+
   // Get form data
   const title = form.elements.title.value;
   const location = form.elements.location.value;
@@ -49,26 +63,6 @@ function listTravelPlan(e) {
 
   // Create list items for each form field
   let ulItem = document.createElement("ul");
-  // let listItem = document.createElement("li");
-
-  // listItem.textContent = `Title: ${title}`;
-  // ulItem.appendChild(listItem);
-
-  // listItem = document.createElement("li");
-  // listItem.textContent = `Location: ${location}`;
-  // ulItem.appendChild(listItem);
-
-  // listItem = document.createElement("li");
-  // listItem.textContent = `Start Date: ${startDate}`;
-  // ulItem.appendChild(listItem);
-
-  // listItem = document.createElement("li");
-  // listItem.textContent = `End Date: ${endDate}`;
-  // ulItem.appendChild(listItem);
-
-  // listItem = document.createElement("li");
-  // listItem.textContent = `Travelers: ${travelers}`;
-  // ulItem.appendChild(listItem);
 
   // // Get the value of the dynamically added input
   const nextLocationInputs = document.querySelectorAll(
@@ -81,17 +75,18 @@ function listTravelPlan(e) {
 
   // Create list items for filled fields
   const filledFields = [
-    { name: "title", value: title },
-    { name: "location", value: location },
-    { name: "nextLocations", value: nextLocations },
-    { name: "startDate", value: startDate },
-    { name: "endDate", value: endDate },
-    { name: "travelers", value: travelers },
+    { name: "Title", value: title },
+    { name: "Location", value: location },
+    { name: "Next Locations", value: nextLocations },
+    { name: "Start Date", value: startDate },
+    { name: "End Date", value: endDate },
+    { name: "Travelers", value: travelers },
   ].filter((field) => field.value);
 
   // Create a new div element to hold the ul list
   const createDivList = document.createElement("div");
   createDivList.setAttribute("class", "list-plan");
+  createDivList.setAttribute("id", "my-plans");
 
   // Create a new div element to hold the ul list
   if (filledFields.length > 0) {
@@ -101,14 +96,44 @@ function listTravelPlan(e) {
       // Create a new ul element for each list
       ulItem.appendChild(listItem);
       createDivList.appendChild(ulItem);
+      createDivList.appendChild(createDivButtons);
       listTravelPlanContainer.appendChild(createDivList);
+
+      const printBtn = document.getElementById("print");
+      printBtn.addEventListener("click", printButton);
     });
   } else {
     const listItem = document.createElement("li");
     listItem.textContent = "No vacation planned yet.";
+    createDivList.appendChild(createDivButtons);
     listTravelPlanContainer.appendChild(listItem);
+
+    const printBtn = document.getElementById("print");
+    printBtn.addEventListener("click", printButton);
   }
+
+  form.reset();
 }
 
 const saveFormSubmit = document.getElementById("saveFormSubmit");
 saveFormSubmit.addEventListener("click", listTravelPlan);
+
+function printButton(e) {
+  e.preventDefault();
+
+  var prtContent = document.getElementById("my-plans");
+  var WinPrint = window.open(
+    "",
+    "",
+    "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
+  );
+  WinPrint.document.write(prtContent.innerHTML);
+  WinPrint.document.close();
+  WinPrint.setTimeout(function () {
+    WinPrint.focus();
+    WinPrint.print();
+    WinPrint.close();
+  }, 1000);
+  // print button
+}
+

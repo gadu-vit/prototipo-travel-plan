@@ -67,7 +67,8 @@ main section div.form-content {
     margin: 70px;
 }
 
-main section div form {
+main section div form,
+main section div.list-travel-plan {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -117,11 +118,17 @@ main section div.list-travel-plan {
     border: 1px solid #FFF;
     background-color: #FFF; 
     padding: 24px 48px;
-    line-height: 1.8;
     display: block;
     list-style: none !important;
 }
 
-main section div.list-plan {
-    display: flex;
+/* main section div.list-travel-plan div.list-plan {
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center;
+} */
+
+
+main section div.list-travel-plan div.list-plan ul li:first-child {
+    font-size: 20px;
 }
