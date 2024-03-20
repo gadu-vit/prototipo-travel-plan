@@ -111,3 +111,14 @@ main section .button-group :hover {
     background: #000;
     color: #f9be37;
 }
+
+main section div.list-travel-plan {
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #FFF;
+    background-color: #FFF; 
+    padding: 24px 48px;
+    line-height: 1.8;
+    display: block;
+    list-style: none !important;
+}

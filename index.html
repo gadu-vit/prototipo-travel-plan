@@ -34,7 +34,7 @@
                 <form action="#" class="travel-plan">
                     <div class="form-group" id="title_group">
                         <label for="#">Title</label>
-                        <input type="text" name="Title" placeholder="Plan's Title" class="form-control">
+                        <input type="text" name="title" placeholder="Plan's Title" class="form-control">
                     </div>
                     <div class="form-group" id="location_group">
                         <label for="#">Location</label>
@@ -42,22 +42,23 @@
                     </div>
                     <div class="form-group" id="sdate_group">
                         <label for="#">Start Date</label>
-                        <input type="text" name="start-date" placeholder="Start date" class="form-control">
+                        <input type="text" name="startDate" placeholder="Start date" class="form-control">
                     </div>
                     <div class="form-group" id="edate_group">
                         <label for="#">End Date</label>
-                        <input type="text" name="end-date" placeholder="End date" class="form-control">
+                        <input type="text" name="endDate" placeholder="End date" class="form-control">
                     </div>
                     <div class="form-group" id="travelers_group">
                         <label for="#">Travelers</label>
-                        <input type="number" min="1" max="15" name="Travelers" placeholder="Travelers" class="form-control">
+                        <input type="number" min="1" max="15" name="travelers" placeholder="Travelers" class="form-control">
                     </div>
                     <div class="button-group" id="buttons_group">
-                        <input type="submit" class="form-control" value="Save">
-                        <input type="button" class="add_location_input" value="Add new location" id="addLocationButton">
+                        <input type="button" id="saveFormSubmit" class="form-control" value="Save">
+                        <input type="button" id="addLocationButton" class="add_location_input" value="Add new location">
                     </div>
                 </form>
             </div>
+            <div class="list-travel-plan"></div>
         </section>
     </main>
     <script src="/index.js"></script>
