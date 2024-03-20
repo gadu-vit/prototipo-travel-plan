@@ -23,7 +23,6 @@ body {
 body ul li {
     list-style: none;
     padding: 10px;
-    color: #FFF;
 }
 
 body nav ul {
@@ -121,4 +120,8 @@ main section div.list-travel-plan {
     line-height: 1.8;
     display: block;
     list-style: none !important;
+}
+
+main section div.list-plan {
+    display: flex;
 }

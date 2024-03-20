@@ -38,10 +38,7 @@ function listTravelPlan(e) {
   e.preventDefault();
 
   const form = document.querySelector(".travel-plan");
-  const listTravelPlan = document.querySelector(".list-travel-plan");
-
-  // Clear any existing list content
-  listTravelPlan.innerHTML = "";
+  const listTravelPlanContainer = document.querySelector(".list-travel-plan");
 
   // Get form data
   const title = form.elements.title.value;
@@ -51,28 +48,32 @@ function listTravelPlan(e) {
   const travelers = form.elements.travelers.value;
 
   // Create list items for each form field
-  let listItem = document.createElement("li");
-  listItem.textContent = `Title: ${title}`;
-  listTravelPlan.appendChild(listItem);
+  let ulItem = document.createElement("ul");
+  // let listItem = document.createElement("li");
 
-  listItem = document.createElement("li");
-  listItem.textContent = `Location: ${location}`;
-  listTravelPlan.appendChild(listItem);
+  // listItem.textContent = `Title: ${title}`;
+  // ulItem.appendChild(listItem);
 
-  listItem = document.createElement("li");
-  listItem.textContent = `Start Date: ${startDate}`;
-  listTravelPlan.appendChild(listItem);
+  // listItem = document.createElement("li");
+  // listItem.textContent = `Location: ${location}`;
+  // ulItem.appendChild(listItem);
 
-  listItem = document.createElement("li");
-  listItem.textContent = `End Date: ${endDate}`;
-  listTravelPlan.appendChild(listItem);
+  // listItem = document.createElement("li");
+  // listItem.textContent = `Start Date: ${startDate}`;
+  // ulItem.appendChild(listItem);
 
-  listItem = document.createElement("li");
-  listItem.textContent = `Travelers: ${travelers}`;
-  listTravelPlan.appendChild(listItem);
+  // listItem = document.createElement("li");
+  // listItem.textContent = `End Date: ${endDate}`;
+  // ulItem.appendChild(listItem);
 
-  // Get the value of the dynamically added input
-  const nextLocationInputs = document.querySelectorAll('input[name="next-location"]');
+  // listItem = document.createElement("li");
+  // listItem.textContent = `Travelers: ${travelers}`;
+  // ulItem.appendChild(listItem);
+
+  // // Get the value of the dynamically added input
+  const nextLocationInputs = document.querySelectorAll(
+    'input[name="next-location"]'
+  );
   const nextLocations = [];
   for (const input of nextLocationInputs) {
     nextLocations.push(input.value);
@@ -85,20 +86,28 @@ function listTravelPlan(e) {
     { name: "nextLocations", value: nextLocations },
     { name: "startDate", value: startDate },
     { name: "endDate", value: endDate },
-    { name: "travelers", value: travelers }
-  ].filter(field => field.value);
+    { name: "travelers", value: travelers },
+  ].filter((field) => field.value);
+
+  // Create a new div element to hold the ul list
+  const createDivList = document.createElement("div");
+  createDivList.setAttribute("class", "list-plan");
+
+  // Create a new div element to hold the ul list
   if (filledFields.length > 0) {
-    filledFields.forEach(field => {
+    filledFields.forEach((field) => {
       const listItem = document.createElement("li");
       listItem.textContent = `${field.name}: ${field.value}`;
-      listTravelPlan.appendChild(listItem);
+      // Create a new ul element for each list
+      ulItem.appendChild(listItem);
+      createDivList.appendChild(ulItem);
+      listTravelPlanContainer.appendChild(createDivList);
     });
   } else {
     const listItem = document.createElement("li");
     listItem.textContent = "No vacation planned yet.";
-    listTravelPlan.appendChild(listItem);
+    listTravelPlanContainer.appendChild(listItem);
   }
-
 }
 
 const saveFormSubmit = document.getElementById("saveFormSubmit");
