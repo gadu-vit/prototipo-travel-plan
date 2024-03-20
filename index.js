@@ -134,6 +134,5 @@ function printButton(e) {
     WinPrint.print();
     WinPrint.close();
   }, 1000);
-  // print button
 }
 
