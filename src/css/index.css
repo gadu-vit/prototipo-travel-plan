@@ -122,12 +122,23 @@ main section div.list-travel-plan {
     list-style: none !important;
 }
 
-/* main section div.list-travel-plan div.list-plan {
+main section div.list-travel-plan div.list-plan {
     display: flex !important;
     justify-content: space-around;
     align-items: center;
-} */
+    align-content: center;
+}
 
+main section div.list-travel-plan div.list-plan ul,
+main section div.list-travel-plan div.list-plan {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main section div.list-travel-plan div.list-plan input {
+    margin: 0;
+}
 
 main section div.list-travel-plan div.list-plan ul li:first-child {
     font-size: 20px;

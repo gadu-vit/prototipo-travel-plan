@@ -99,17 +99,21 @@ function listTravelPlan(e) {
       createDivList.appendChild(createDivButtons);
       listTravelPlanContainer.appendChild(createDivList);
 
-      const printBtn = document.getElementById("print");
-      printBtn.addEventListener("click", printButton);
+      const printBtn = createDivButtons.querySelector("#print");
+      printBtn.addEventListener("click", (e) => {
+        const listToPrint = e.target.closest(".list-plan"); // Get closest "my-plans" div
+        printButton(listToPrint, e); // Pass the correct div to printButton
+      });
+
+      listTravelPlanContainer.addEventListener("click", (e) => {
+        const listToDelete = e.target.closest(".list-plan");
+        deleteButton(listToDelete, e);
+      });
     });
   } else {
     const listItem = document.createElement("li");
     listItem.textContent = "No vacation planned yet.";
-    createDivList.appendChild(createDivButtons);
     listTravelPlanContainer.appendChild(listItem);
-
-    const printBtn = document.getElementById("print");
-    printBtn.addEventListener("click", printButton);
   }
 
   form.reset();
@@ -118,16 +122,17 @@ function listTravelPlan(e) {
 const saveFormSubmit = document.getElementById("saveFormSubmit");
 saveFormSubmit.addEventListener("click", listTravelPlan);
 
-function printButton(e) {
-  e.preventDefault();
+function printButton(listToPrint, e) {
+  if (e) {
+    e.preventDefault();
+  }
 
-  var prtContent = document.getElementById("my-plans");
-  var WinPrint = window.open(
+  let WinPrint = window.open(
     "",
     "",
     "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
   );
-  WinPrint.document.write(prtContent.innerHTML);
+  WinPrint.document.write(listToPrint.innerHTML);
   WinPrint.document.close();
   WinPrint.setTimeout(function () {
     WinPrint.focus();
@@ -136,3 +141,9 @@ function printButton(e) {
   }, 1000);
 }
 
+function deleteButton(listToDelete, e) {
+  e.preventDefault();
+  if (e.target.id === "delete") {
+    listToDelete.remove();
+  }
+}
