@@ -54,6 +54,14 @@ main div.list-header > nav a {
     font-weight: 550;
 }
 
+main div#menu button.show-mobile {
+    border: 0px solid #FFFFFF30;
+    border-radius: 6px;
+    color: #FFF;
+    background-color: unset;
+    cursor: pointer;
+}
+
 main section div.text-body h1 {
     padding: 10px;
     margin: 100px;
@@ -142,4 +150,175 @@ main section div.list-travel-plan div.list-plan input {
 
 main section div.list-travel-plan div.list-plan ul li:first-child {
     font-size: 20px;
+}
+
+@media screen and (min-width: 360px) {
+    main .show-mobile {
+        display: block;
+    }
+    main .show-tablet-desktop {
+        display: block;
+    }
+    main .show-desktop {
+        display: none;
+    }
+
+    main section div.text-body h1 {
+        padding: 10px;
+        margin: 35px;
+        position: inherit;
+        font-size: 1.6em;
+        color: #FFF;
+    }  
+    
+    main section div form,
+    main section div.list-travel-plan {
+        display: block;
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid #FFF;
+        background-color: #FFF;
+        padding: 24px 48px;
+        line-height: 1.8;
+    }
+
+    main section h2 {
+        font-size: 1.3em;
+    }
+
+    main section div.list-travel-plan div.list-plan {
+        display: block !important;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+    }
+    
+    main section div.list-travel-plan div.list-plan ul,
+    main section div.list-travel-plan div.list-plan {
+        display: block;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    main .show-mobile {
+        display: block;
+    }
+    main .show-tablet-desktop {
+        display: block;
+    }
+    main .show-desktop {
+        display: none;
+    }
+
+    main section div.text-body h1 {
+        padding: 10px;
+        margin: 60px;
+        position: inherit;
+        font-size: 3em;
+        color: #FFF;
+    }
+
+    main section h2 {
+        font-size: 1.5em;
+    }
+
+    main section div.list-travel-plan div.list-plan {
+        display: block !important;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+    }
+    
+    main section div.list-travel-plan div.list-plan ul,
+    main section div.list-travel-plan div.list-plan {
+        display: block;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+}
+
+@media screen and (min-width: 992px) {
+    main .show-mobile {
+        display: none;
+    }
+    main .show-tablet-desktop {
+        display: block;
+    }
+    main .show-desktop {
+        display: block;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    main section div.list-travel-plan div.list-plan {
+        display: block !important;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+    }
+    
+    main section div.list-travel-plan div.list-plan ul{
+        display: block;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    main .show-mobile {
+        display: none;
+    }
+    main .show-tablet-desktop {
+        display: block;
+    }
+    main .show-desktop {
+        display: block;
+    }
+
+    main section div form,
+    main section div.list-travel-plan {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid #FFF;
+        background-color: #FFF; 
+        padding: 24px 48px;
+        line-height: 1.8 !important;
+    }
+
+    main section div.list-travel-plan {
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid #FFF;
+        background-color: #FFF; 
+        padding: 24px 48px;
+        display: block;
+        list-style: none !important;
+    }
+    
+    main section div.list-travel-plan div.list-plan {
+        display: flex !important;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+    }
+    
+    main section div.list-travel-plan div.list-plan ul,
+    main section div.list-travel-plan div.list-plan {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    main section div.list-travel-plan div.list-plan input {
+        margin: 0;
+    }
+    
+    main section div.list-travel-plan div.list-plan ul li:first-child {
+        font-size: 20px;
+    }
 }
